@@ -1,6 +1,8 @@
 package com.example.girokhanyang_0
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -47,6 +49,13 @@ class UserLoginActivity : AppCompatActivity() {
             mFirebaseAuth.signInWithEmailAndPassword(strEmail, strPassword).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // 로그인 성공
+
+                    // 로그인한 아이디 SharedPreferences로 저장하기
+                    val sharedPrefs: SharedPreferences? = getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+                    val editor = sharedPrefs?.edit()
+                    editor?.putString("id", strEmail)
+                    editor?.apply()
+
                     val intent = Intent(this, UploadActivity::class.java)
                     startActivity(intent)
                     finish()

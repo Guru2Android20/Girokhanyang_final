@@ -2,9 +2,11 @@ package com.example.girokhanyang_0
 
 import DiaryEntry
 import SqliteHelper
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.net.Uri
@@ -18,10 +20,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.util.Calendar
 
 class UploadActivity : AppCompatActivity(){
+    /*private var mAuth: FirebaseAuth? = null
+    private var storage: FirebaseStorage? = null
+    private var database: FirebaseDatabase? = null*/
 
     private lateinit var addImg : ImageView
 
@@ -34,6 +42,7 @@ class UploadActivity : AppCompatActivity(){
     private lateinit var etWrite : EditText
     private lateinit var btnUpload : Button
     private lateinit var recylerview : RecyclerView
+    private var imageUrl = ""
 
     private lateinit var btnDate : Button
 
@@ -46,6 +55,10 @@ class UploadActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload)
+
+        /*mAuth = FirebaseAuth.getInstance()
+        storage = FirebaseStorage.getInstance()
+        database = FirebaseDatabase.getInstance()*/
 
         // 기분 이미지
         imgHappyGray = findViewById<ImageView>(R.id.img_happy_gray)
@@ -143,6 +156,20 @@ class UploadActivity : AppCompatActivity(){
         btnUpload.setOnClickListener {
             saveData()
 
+            // 메인으로 이동
+            val intent = Intent(this, NaviActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+            finish()
+        }
+
+        fun init() {
+            val ba = intent.getByteArrayExtra("dImage")
+
+            if (intent.getByteArrayExtra("dImage") != null) {
+                val bitmap = BitmapFactory.decodeByteArray(ba, 0, ba!!.size)
+                addImg.setImageBitmap(bitmap)
+            }
         }
     }
 
@@ -150,30 +177,26 @@ class UploadActivity : AppCompatActivity(){
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (resultCode == RESULT_OK && requestCode == 200) {
-            list.clear()
+        if (data?.clipData != null) { // 사진 여러개 선택한 경우
+            val count = data.clipData!!.itemCount
+            if (count > 10) {
+                Toast.makeText(applicationContext, "사진은 10장까지 선택 가능합니다.", Toast.LENGTH_LONG)
+                return
+            }
+            for (i in 0 until count) {
+                val imageUri = data.clipData!!.getItemAt(i).uri
+                list.add(imageUri)
+            }
 
-            if (data?.clipData != null) { // 사진 여러개 선택한 경우
-                val count = data.clipData!!.itemCount
-                if (count > 10) {
-                    Toast.makeText(applicationContext, "사진은 최대 10장까지 선택 가능합니다", Toast.LENGTH_LONG)
-                    return
-                }
-                for (i in 0 until count) {
-                    val imageUri = data.clipData!!.getItemAt(i).uri
+        } else { // 단일 선택
+            data?.data?.let { uri ->
+                val imageUri : Uri? = data?.data
+                if (imageUri != null) {
                     list.add(imageUri)
                 }
-            } else {    // 단일 선택
-                data?.data?.let { uri ->
-                    val imageUri : Uri? = data?.data
-                    if (imageUri != null) {
-                        list.add(imageUri)
-                    }
-                }
             }
-            adapter.notifyDataSetChanged()
-
         }
+        adapter.notifyDataSetChanged()
     }
 
     private fun drawbleToByteArray(drawable: Drawable?) : ByteArray? {
@@ -196,10 +219,7 @@ class UploadActivity : AppCompatActivity(){
         helper.insertData(diaryEntry)
 
         Toast.makeText(this, "저장되었습니다", Toast.LENGTH_SHORT).show()
-
-
-
-
+        finish()
     }
 
     private fun updateData() {

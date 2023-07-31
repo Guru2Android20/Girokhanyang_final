@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChartMFragment">
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/prevBtn"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/border_style_full"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:id="@+id/monthTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="월 선택하기"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="right"
+            android:background="@drawable/border_style_full"
+            android:src="@drawable/ic_arrow_right" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/selectWM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/wBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/chart_mode_btn_off"
+            android:textColor="#D9D9D9"
+            android:text="주별" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/chart_mode_btn_on"
+            android:textColor="@color/black"
+            android:text="월별" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="30dp"
+        android:text="종합 통계"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectWM" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/border_style_full"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mDiaryCountTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="0"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="이번 달 작성한\n일기 개수" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/border_style_full"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/topMoodImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_mood1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="이번 달 가장 많이\n느낀 기분" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

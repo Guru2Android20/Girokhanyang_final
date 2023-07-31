@@ -16,6 +16,15 @@
         android:theme="@style/Theme.GirokHanyang_0"
         tools:targetApi="31">
         <activity
+            android:name=".NaviActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangePwActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".UploadActivity"
             android:exported="false" />
         <activity

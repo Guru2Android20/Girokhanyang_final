@@ -5,18 +5,9 @@ import android.os.Bundle
 
 class UserAccount : AppCompatActivity() {
 
-    private var idToken: String? = null
     private var emailId : String? = null
     private var password : String? = null
     private var nickname : String? = null
-
-    fun setIdToken(idToken: String?) {
-        this.idToken = idToken
-    }
-
-    fun getIdToken(): String? {
-        return idToken
-    }
 
     fun setEmailId(emailId: String?) {
         this.emailId = emailId

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--버튼 아이콘 크기 조정-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/ic_mood3"
+        android:width="26dp"
+        android:height="26dp" />
+</layer-list>

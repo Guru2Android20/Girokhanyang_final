@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChartWFragment">
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/prevBtn"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/border_style_full"
+            android:src="@drawable/ic_arrow_left" />
+
+        <TextView
+            android:id="@+id/dateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="주 선택하기"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/nextBtn"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_gravity="right"
+            android:background="@drawable/border_style_full"
+            android:src="@drawable/ic_arrow_right" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/selectWM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/wBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/chart_mode_btn_on"
+            android:textColor="@color/black"
+            android:text="주별" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/mBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/chart_mode_btn_off"
+            android:textColor="#D9D9D9"
+            android:text="월별" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="30dp"
+        android:text="기분 차트"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectWM" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style_chart"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="29dp"
+                android:src="@drawable/ic_mood1_resizing" />
+
+            <ImageView
+                android:id="@+id/mood11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+            <ImageView
+                android:id="@+id/mood21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+            <ImageView
+                android:id="@+id/mood31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+            <ImageView
+                android:id="@+id/mood41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+            <ImageView
+                android:id="@+id/mood51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+            <ImageView
+                android:id="@+id/mood61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+            <ImageView
+                android:id="@+id/mood71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood1_circle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style_chart"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="29dp"
+                android:src="@drawable/ic_mood2_resizing" />
+
+            <ImageView
+                android:id="@+id/mood12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+            <ImageView
+                android:id="@+id/mood22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+            <ImageView
+                android:id="@+id/mood32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+            <ImageView
+                android:id="@+id/mood42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+            <ImageView
+                android:id="@+id/mood52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+            <ImageView
+                android:id="@+id/mood62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+            <ImageView
+                android:id="@+id/mood72"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood2_circle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style_chart"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="29dp"
+                android:src="@drawable/ic_mood3_resizing" />
+
+            <ImageView
+                android:id="@+id/mood13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+            <ImageView
+                android:id="@+id/mood23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+            <ImageView
+                android:id="@+id/mood33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+            <ImageView
+                android:id="@+id/mood43"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+            <ImageView
+                android:id="@+id/mood53"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+            <ImageView
+                android:id="@+id/mood63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+            <ImageView
+                android:id="@+id/mood73"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood3_circle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style_chart"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="29dp"
+                android:src="@drawable/ic_mood4_resizing" />
+
+            <ImageView
+                android:id="@+id/mood14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+            <ImageView
+                android:id="@+id/mood24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+            <ImageView
+                android:id="@+id/mood34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+            <ImageView
+                android:id="@+id/mood44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+            <ImageView
+                android:id="@+id/mood54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+            <ImageView
+                android:id="@+id/mood64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+            <ImageView
+                android:id="@+id/mood74"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood4_circle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style_chart"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="29dp"
+                android:src="@drawable/ic_mood5_resizing" />
+
+            <ImageView
+                android:id="@+id/mood15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+            <ImageView
+                android:id="@+id/mood25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+            <ImageView
+                android:id="@+id/mood35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+            <ImageView
+                android:id="@+id/mood45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+            <ImageView
+                android:id="@+id/mood55"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+            <ImageView
+                android:id="@+id/mood65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+            <ImageView
+                android:id="@+id/mood75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:src="@drawable/ic_mood5_circle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_style_chart"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="62dp"
+                android:text="월"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="화"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="수"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="목"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="금"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="토"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="일"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 기분별 일기 부분 -->
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="기분별 일기"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/mood1Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/ic_mood1_on_off" />
+
+            <ImageButton
+                android:id="@+id/mood2Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/ic_mood2_on_off" />
+
+            <ImageButton
+                android:id="@+id/mood3Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/ic_mood3_on_off" />
+
+            <ImageButton
+                android:id="@+id/mood4Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/ic_mood4_on_off" />
+
+            <ImageButton
+                android:id="@+id/mood5Btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_mood5_on_off" />
+
+        </LinearLayout>
+
+        &lt;!&ndash; 기분별 일기를 표시할 RecyclerView &ndash;&gt;
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
