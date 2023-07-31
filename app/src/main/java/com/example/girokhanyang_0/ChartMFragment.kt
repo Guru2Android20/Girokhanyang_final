@@ -2,6 +2,7 @@ package com.example.girokhanyang_0
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.SharedPreferences
 import android.database.Cursor
 import android.os.Bundle
 import android.view.Gravity
@@ -38,6 +39,9 @@ class ChartMFragment : Fragment() {
 
     lateinit var mDiaryCountTextView: TextView // 설정된 달의 일기 총 개수를 보여주는 TextView
     lateinit var topMoodImageView: ImageView // 설정된 달에 가장 많이 느낀 기분을 보여주는 ImageView
+
+    private var selectedTopMood: Int? = null // 선택된 달의 TopMood를 저장하는 변수
+    private var previousSelectedMonth: Int? = null // 이전에 선택된 월을 저장하는 변수
 
     // 주별 버튼 클릭 이벤트 처리를 위한 인터페이스
     interface OnChartWButtonClickListener {
@@ -152,11 +156,17 @@ class ChartMFragment : Fragment() {
         // 달별 일기 개수, 가장 많이 느낀 기분 값 가져오기
         val (mDiaryCount, topMood) = showTotalChart(mSelectedMonth)
 
+        // 달 이동 시 topMood 값 업데이트 업데이트
+        if (selectedTopMood == null || mSelectedMonth != previousSelectedMonth) {
+            selectedTopMood = topMood
+        }
+        previousSelectedMonth = mSelectedMonth
+
         // 달별 일기 개수 보여주기
         mDiaryCountTextView.text = mDiaryCount.toString()
 
         // 달별 가장 많이 느낀 기분 보여주기
-        when (topMood) {
+        when (selectedTopMood) {
             1 -> topMoodImageView.setImageResource(R.drawable.ic_mood1)
             2 -> topMoodImageView.setImageResource(R.drawable.ic_mood2)
             3 -> topMoodImageView.setImageResource(R.drawable.ic_mood3)
@@ -182,6 +192,10 @@ class ChartMFragment : Fragment() {
 
     // 종합 통계를 보여주는 함수
     private fun showTotalChart(selectedMonth: Int): Pair<Int, Int?> {
+        // 현재 로그인 되어 있는 아이디 가져오기(SharedPreferences)
+        val sharedPrefs: SharedPreferences? = activity?.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val id = sharedPrefs?.getString("id", "")
+
         val db = myHelper.readableDatabase
         var mDiaryCount = 0
         var topMood: Int? = null
@@ -201,7 +215,9 @@ class ChartMFragment : Fragment() {
         val endDate = SimpleDateFormat("yyyy-MM-dd'T'23:59:59", Locale.getDefault()).format(calendar.time)
 
         // diaryTBL에서 해당 달의 총 일기 수 가져오기
-        val query = "SELECT COUNT(*) FROM diaryTBL WHERE writingTime >= '$startDate' AND writingTime <= '$endDate'"
+        val query = "SELECT COUNT(*) FROM diaryTBL WHERE id = '$id' " +
+                "AND writingTime >= '$startDate' " +
+                "AND writingTime <= '$endDate'"
         val diaryCountCursor: Cursor = db.rawQuery(query, null)
         if (diaryCountCursor.moveToFirst()) {
             mDiaryCount = diaryCountCursor.getInt(0)
@@ -209,8 +225,10 @@ class ChartMFragment : Fragment() {
         diaryCountCursor.close()
 
         // diaryTBL에서 해당 달의 가장 많이 나온 기분 값 가져오기(값이 동일하다면 내림차순)
-        val moodQuery =
-            "SELECT mood FROM diaryTBL WHERE writingTime >= '$startDate' AND writingTime <= '$endDate' GROUP BY mood ORDER BY COUNT(*) ASC LIMIT 1"
+        val moodQuery = "SELECT mood FROM diaryTBL WHERE id = '$id' " +
+                "AND writingTime >= '$startDate' " +
+                "AND writingTime <= '$endDate' " +
+                "GROUP BY mood ORDER BY COUNT(*) DESC, mood ASC LIMIT 1"
         val mostFrequentMoodCursor: Cursor = db.rawQuery(moodQuery, null)
         if (mostFrequentMoodCursor.moveToFirst()) {
             topMood = mostFrequentMoodCursor.getInt(0)
@@ -227,7 +245,7 @@ class ChartMFragment : Fragment() {
         mDiaryCountTextView.text = mDiaryCount.toString()
 
         when (topMood) {
-            1 -> topMoodImageView.setImageResource(R.drawable.ic_mood2)
+            1 -> topMoodImageView.setImageResource(R.drawable.ic_mood1)
             2 -> topMoodImageView.setImageResource(R.drawable.ic_mood2)
             3 -> topMoodImageView.setImageResource(R.drawable.ic_mood3)
             4 -> topMoodImageView.setImageResource(R.drawable.ic_mood4)

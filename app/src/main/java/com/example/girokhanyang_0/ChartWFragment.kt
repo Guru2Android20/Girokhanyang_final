@@ -2,6 +2,7 @@ package com.example.girokhanyang_0
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.SharedPreferences
 import com.example.girokhanyang_0.database.MyDBHelper
 import android.database.Cursor
 import android.os.Bundle
@@ -263,13 +264,14 @@ class ChartWFragment : Fragment() {
         return calendar.get(Calendar.DAY_OF_WEEK)
     }
 
-    // (!!) 차트 그리는 함수 -> 아이디, 일기 데이터 부분 수정
+    // 차트 그리는 함수
     private fun drawChart() {
         // 처음에 모든 ImageView 숨기기
         moodImageViews.forEach { view?.findViewById<ImageView>(it)?.visibility = View.INVISIBLE }
 
-        // (!!) 현재 로그인 되어 있는 아이디 가져오기
-        val id = "swuni1"
+        // 현재 로그인 되어 있는 아이디 가져오기(SharedPreferences)
+        val sharedPrefs: SharedPreferences? = activity?.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val id = sharedPrefs?.getString("id", "")
 
         val sqlDB = myHelper.readableDatabase
 

@@ -3,12 +3,400 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="main" />
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="42sp"
+            android:src="@drawable/logo"
+            android:layout_margin="10dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#F4F4F4" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="8월의 시작! 이번 달 목표는 잘 챙겨 먹고 새로운 사람들과 만나며 소중한 경험 쌓기. 무더운 날씨에 지치기 쉬우니 무작정 달리지 않고, 중간중간 정비하는 시간도 갖는 게 중요할 것 같다." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-08-01 10:00:56" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="저녁을 먹고 집에 가는 길에 다이어리와 LP 판을 샀다. 오전에 체크카드를 잃어버리고 약속 시간에 늦어버려 홧김에 샀는데, 사고 보니 만족스러워서 기분이 좀 풀린다···. 방학동안 재밌게 사용해야지!" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="239dp"
+                            android:layout_height="239dp"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/pic1" />
+
+                        <ImageView
+                            android:layout_width="239dp"
+                            android:layout_height="239dp"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/pic2" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-07-30 21:10:41" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="학기 중에 만나기 어려웠던 친구와 종강 기념으로 카페에서 만났다. 평소엔 듣기 힘든 다른 학과 이야기는 언제 들어도 재밌다. 졸업 후 진로는 어떻게 할 건지 조금 얘기를 나눴을 뿐인데 어느새 3시간이나 흘러서 둘 다 놀랐다. " />
+
+                <ImageView
+                    android:layout_width="317dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/pic5" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-07-30 17:35:56" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="아침부터 하루종일 비가 와서 우울하다. 자다가 아침에 눈을 떴는데 습도도 높고 밖도 어두워 밤중에 일어난 줄 알았다. 내일은 친구랑 만나는 날이니까 오늘 날씨가 안 좋아도 좀 참아야겠다." />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood5" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-07-29 13:00:35" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="자취방에서 처음 맞는 여름 방학이다. 시간이 ‘녹는다’는 표현을 살면서 처음 써봤을 정도로 먹고 자고를 반복하는 나날을 보내고 있다. 가끔 시간을 버리고 있는 것 같다는 회의감도 들지만 나중엔 이 순간들이 분명히 그리워지겠지?" />
+
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="239dp"
+                            android:layout_height="239dp"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/pic4" />
+
+                        <ImageView
+                            android:layout_width="239dp"
+                            android:layout_height="239dp"
+                            android:layout_margin="10dp"
+                            android:src="@drawable/pic3" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood3" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-07-24 08:16:56" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="계절 학기 강의를 듣고 집에 오는 길에 우연히 처음 보는 카페에 들렀다. 올해 처음으로, 커피가 맛있어서 동공 확대된 카페! 브루잉 커피도 향긋하고 휘낭시에도 겉바속촉 맛있어서 다음에 친구들과 같이 오고 싶다." />
+
+                <ImageView
+                    android:layout_width="317dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/pic6" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-07-08 16:08:56" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:text="이제 정말 종강한 게 체감된다. 1학기엔 5일 수업이었고 1교시부터 시작되는 스케줄이라서 체력 면에서 정말 힘들었는데, 계절 학기는 주 1회 오후 수업이라서 등교길이 신나고 즐겁다. " />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/ic_mood2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#B9B9B9"
+                        android:textSize="12sp"
+                        android:layout_marginRight="10dp"
+                        android:text="2023-06-30 18:24:11" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#F4F4F4" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="   " />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </FrameLayout>

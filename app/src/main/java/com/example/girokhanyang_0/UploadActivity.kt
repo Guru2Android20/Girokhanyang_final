@@ -31,6 +31,8 @@ class UploadActivity : AppCompatActivity(){
     private var storage: FirebaseStorage? = null
     private var database: FirebaseDatabase? = null*/
 
+    private lateinit var closeImg : ImageView
+
     private lateinit var addImg : ImageView
 
     private lateinit var imgHappyGray : ImageView
@@ -80,6 +82,15 @@ class UploadActivity : AppCompatActivity(){
 
         // 날짜
         btnDate = findViewById<Button>(R.id.btnDate)
+
+        // X 버튼
+        closeImg = findViewById(R.id.closeImg)
+
+        closeImg.setOnClickListener {
+            val intent = Intent(this, NaviActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val c = Calendar.getInstance()  // 현재 날짜 설정
         val year = c.get(Calendar.YEAR)

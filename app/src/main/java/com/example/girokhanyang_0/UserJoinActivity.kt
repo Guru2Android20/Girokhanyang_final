@@ -80,7 +80,7 @@ class UserJoinActivity : Activity() {
                         Toast.makeText(this, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                         finish()
 
-                        val intent = Intent(this, UploadActivity::class.java)
+                        val intent = Intent(this, UserLoginActivity::class.java)
                         startActivity(intent)
                         finish()
 

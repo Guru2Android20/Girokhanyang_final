@@ -9,18 +9,17 @@ class MyDBHelper(context: Context) : SQLiteOpenHelper(context, "myDB", null, 1) 
 
         // 사용자 정보를 저장하는 userTBL(아이디, 닉네임, 비밀번호)
         db!!.execSQL("CREATE TABLE userTBL ( id TEXT PRIMARY KEY, nickname TEXT, password TEXT );")
-        db?.apply {
-            execSQL("INSERT INTO userTBL VALUES ( 'swuni1', '슈니1', '1234' );")
-            execSQL("INSERT INTO userTBL VALUES ( 'swuni2', '슈니2', '5678' );")
-            execSQL("INSERT INTO userTBL VALUES ( 'swuni3', '슈니3', '0000' );")
-        }
 
         // 일기 정보를 저장하는 diaryTBL(아이디, 내용, 기분(1~5), 작성시간)
         db!!.execSQL("CREATE TABLE diaryTBL ( id TEXT, contents TEXT, mood INT, writingTime TEXT, PRIMARY KEY(id, writingTime) );")
         db?.apply {
-            execSQL("INSERT INTO diaryTBL VALUES ( 'swuni1', '작성된 일기1', 1, '2023-07-28T12:34:56' );")
-            execSQL("INSERT INTO diaryTBL VALUES ( 'swuni1', '작성된 일기2', 2, '2023-07-28T20:34:56' );")
-            execSQL("INSERT INTO diaryTBL VALUES ( 'swuni1', '작성된 일기3', 3, '2023-07-29T12:34:56' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기1', 3, '2023-08-01T10:00:56' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기2', 2, '2023-07-30T21:10:41' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기3', 1, '2023-07-30T17:35:56' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기4', 5, '2023-07-29T13:00:35' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기5', 3, '2023-07-24T08:16:56' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기6', 1, '2023-07-08T16:08:56' );")
+            execSQL("INSERT INTO diaryTBL VALUES ( 'test000@naver.com', '작성된 일기7', 2, '2023-06-30T18:24:11' );")
         }
     }
 
