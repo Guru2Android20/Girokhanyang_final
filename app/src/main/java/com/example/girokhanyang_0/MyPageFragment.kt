@@ -57,7 +57,11 @@ class MyPageFragment : Fragment() {
         // 일기 수 보여주기
         val db = myHelper.readableDatabase
 
-        val query = "SELECT COUNT(*) FROM diaryTBL"
+        // 현재 로그인 되어 있는 아이디 가져오기(SharedPreferences)
+        val sharedPrefs: SharedPreferences? = activity?.getSharedPreferences("user_prefs", Context.MODE_PRIVATE)
+        val id = sharedPrefs?.getString("id", "")
+
+        val query = "SELECT COUNT(*) FROM diaryTBL WHERE id='$id'"
         val cursor: Cursor = db.rawQuery(query, null)
 
         if (cursor.moveToFirst()) {
@@ -111,8 +115,6 @@ class MyPageFragment : Fragment() {
             val nickname = cursor.getString(columnIndex)
             userNameTextView.text = nickname
         }
-
-        Log.d("idtest", id!!)
 
         cursor.close()
         sqlDB.close()
