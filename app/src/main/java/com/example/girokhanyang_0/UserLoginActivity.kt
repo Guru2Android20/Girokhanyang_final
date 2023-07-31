@@ -56,7 +56,7 @@ class UserLoginActivity : AppCompatActivity() {
                     editor?.putString("id", strEmail)
                     editor?.apply()
 
-                    val intent = Intent(this, UploadActivity::class.java)
+                    val intent = Intent(this, NaviActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
